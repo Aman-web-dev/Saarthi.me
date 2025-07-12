@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Brain,
   Zap,
   BarChart3,
   Users,
-  Star,
-  CheckCircle,
+
   ArrowRight,
   Play,
   Heart,
@@ -89,7 +88,7 @@ function App() {
 
     const data = await res.json();
     const updated = defaultEmotions.map((item) => {
-      const found = data.emotion_scores.find((e) => e.label === item.emotion);
+      const found = data.emotion_scores.find((e:any) => e.label === item.emotion);
       return {
         ...item,
         score: found ? Math.round(found.score) : 0,
