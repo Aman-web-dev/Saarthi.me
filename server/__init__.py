@@ -9,6 +9,8 @@ emotion_model = pipeline(
     model="j-hartmann/emotion-english-distilroberta-base",
     top_k=None,
 )
+
+
 sentiment_model = pipeline(
     "sentiment-analysis",
     model="bhadresh-savani/distilbert-base-uncased-emotion",
@@ -21,7 +23,7 @@ def create_app(test_config=None):
     CORS(app,origins=["http://localhost:5173"])
 
 
-    @app.route("/hello", methods=["POST"])
+    @app.route("/", methods=["POST"])
     def hello():
         data = request.get_json()
         print(data)
